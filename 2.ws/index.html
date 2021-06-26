@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>websocket</title>
+</head>
+<body>
+    
+    <script>
+        let ws = new WebSocket('ws://localhost:8888')
+        // 当连接建立成功之后执行
+        ws.onopen = function(){
+            console.log('连接成功！');
+
+            ws.send('服务端你好，我是客户端')
+        }
+        // 当客户端收到服务器消息时执行
+        ws.onmessage = function(event){
+            console.log('onmessage',event.data);
+        }
+    </script>
+</body>
+</html>
